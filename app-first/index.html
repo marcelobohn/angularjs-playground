@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="angular.min.js"></script>
+  <script src="app.js"></script>
   <title>My First Angular App</title>
 </head>
-<body>
-  <div ng-app="">
+<body ng-app="firstApp">
+  <div ng-controller="firstController">
     <p>Name : <input type="text" ng-model="name"></p>
-    <h1>Hello {{name}}</h1>
+    <p>State :
+      <select ng-model="state">
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="PR">Paraná</option>
+      </select>
+    </p>
+    <h1>Hello {{name}} {{state}}</h1>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="person in people">{{person.name}} - {{person.state}}</li>
+    </ul>
   </div>
 </body>
 </html>
